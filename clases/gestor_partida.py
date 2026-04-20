@@ -45,6 +45,15 @@ class gestorPartida(lobo):
         
 
     def comprobar_victoria(self):
+        """
+        comprueba la victoria viendo la cantidad de lobos o aldenaos vivos que hay en la partida
+
+        Args:
+            lobos_vivos (int): numero de lobos que hay vivos
+            aldeanos_vivos (int): numero de aldeanos vivos que hay
+        returns: 
+            str: resultado de la vistoria o derrota.
+        """
         lobos_vivos = sum(1 for j in self.jugadores if j.rol == "lobo" and j.esta_vivo)
         aldeanos_vivos = sum(1 for j in self.jugadores if j.rol != "lobo" and j.esta_vivo)
 
