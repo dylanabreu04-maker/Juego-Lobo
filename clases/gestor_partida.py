@@ -2,15 +2,41 @@ from jugador_del_juego import jugador_del_juego
 from lobo import lobo
 
 class gestorPartida(lobo):  
+    """
+    gestiona l partida incluyendo jugadores, votaciones y el resultado de la partida.
+
+    Esta clase mantiene una lista de jugadores y permite añadir nuevos,
+    realizar votaciones durante el día y comprobar hay algun ganador.
+
+    Attributes:
+        jugadores (list): Lista de jugadores activos e inactivos en la partida.
+    """
     def __init__(self):
         self.jugadores = []
 
-    def anadirJugador(self,nombre, type):  
+    def anadirJugador(self,nombre, type):
+        """
+        Añade un nuevo jugador a la partida.
+
+        Args:
+            nombre (str): Nombre del jugador.
+            type (str): tipo del jugador.
+        """  
         self.jugadores.append(jugador_del_juego(nombre,type)) 
         super().__init__(nombre)
         self.type = type
         
     def votacionDia(self, nombre_votado: str):
+        """
+        Ejecuta la votación del día, eliminando  a un jugador si existe
+        y está vivo.
+
+        Args:
+            nombre_votado (str): Nombre del jugador.
+
+        Returns:
+            str: Resultado de la votación indicando si hubo linchamiento o no.
+        """
         for jugador in self.jugadores:
             if jugador.Nombre == nombre_votado and jugador.esta_vivo:
                 jugador.esta_vivo = False

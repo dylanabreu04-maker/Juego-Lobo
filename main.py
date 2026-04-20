@@ -8,8 +8,13 @@ from logica.metodos import anadirJugador, AccionNocturna
 
 
 
-# --- Ejecución caótica ---
 def crear_partida():
+    """
+    Crea y realiza la partida inicail con un numero determinado de jugadores ya establecidos.
+
+    Returns:
+        gestorPartida: Objeto de la partida con los jugadores ya añadidos.
+    """
     juego = gestorPartida()
     jugadores = [
         ("Nacho", "lobo"),
@@ -24,6 +29,18 @@ def crear_partida():
 
 
 def ejecutar_partida(juego):
+    """
+    Ejecuta la partida realiza una acción nocturna y comprueba
+    si alguna condición de victoria se ha cumplido.
+
+    Args:
+        juego (gestorPartida): lo que contiene los jugadores
+            y su estado actual.
+
+    Returns:
+        None: Imprime el resultado de la acción y la condición
+        de victoria.
+    """
     accion = juego.jugadores[0].AccionNocturna(juego.jugadores[2])
     victoria = juego.ComprobarVictoria()
     
