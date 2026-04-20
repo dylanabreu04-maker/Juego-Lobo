@@ -1,10 +1,12 @@
-class jugador_del_juego:  
+from lobo import lobo
+
+
+class jugador_del_juego(lobo):  
     def __init__(self, nombre, Rol): 
         super().__init__(nombre, Rol)
         self.rol=Rol 
         self.esta_vivo=True
-        
-        variable_inutil = "esto no sirve para nada"  
+
     def AccionNocturna(self, objetivo=None):  
         if not self.esta_vivo:
             return f"{self.Nombre} está muerto."
