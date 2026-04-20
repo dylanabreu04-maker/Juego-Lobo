@@ -1,6 +1,4 @@
-from ..clases import jugador_del_juego
-from ..clases import gestor_partida
-
+from ..clases import jugador_del_juego, gestor_partida
 
 def anadirJugador(self,nombre, type):  
         self.jugadores.append(jugador_del_juego(nombre,type)) 
@@ -39,3 +37,21 @@ def comprobar_victoria(self):
         elif lobos_vivos == 0:
             return "¡Victoria de los Aldeanos!"
         return "La partida debe continuar..."
+
+def ejecutar_partida(juego):
+    accion = juego.jugadores[0].AccionNocturna(juego.jugadores[2])
+    victoria = juego.ComprobarVictoria()
+    
+    print(accion)
+    print(victoria)
+
+def crear_partida():
+    juego = gestorPartida()
+    jugadores = [
+        ("Nacho", "lobo"),
+        ("Elena", "vidente"),
+        ("Carlos", "aldeano")
+    ]
+    
+    for nombre, rol in jugadores:
+        juego.anadirJugador(nombre, rol)

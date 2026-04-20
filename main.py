@@ -20,7 +20,7 @@ def crear_partida():
     for nombre, rol in jugadores:
         juego.anadirJugador(nombre, rol)
     
-    return juego
+    return
 
 
 def ejecutar_partida(juego):
