@@ -1,0 +1,3 @@
+from gestor_partida import gestorPartida
+from jugador_del_juego import jugador_del_juego
+from lobo import lobo
